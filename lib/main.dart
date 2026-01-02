@@ -321,6 +321,119 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+  Future<void> _requestRefund() async {
+    if (paymentId.isEmpty) {
+      _log('[Flutter] ERROR: Payment ID not available');
+      _showDialog('Error', 'No payment to refund. Please create a payment first.');
+      return;
+    }
+
+    if (paymentAmount == 0) {
+      _log('[Flutter] ERROR: Payment amount not available');
+      _showDialog('Error', 'Payment amount is unknown. Cannot process refund.');
+      return;
+    }
+
+    _log('=================================================================');
+    _log('[Flutter] REQUESTING REFUND');
+    _log('=================================================================');
+    _log('[Flutter] Payment ID to refund: $paymentId');
+    _log('[Flutter] Refund amount (IQD): $paymentAmount');
+    _log('[Flutter] Sending refund request to backend...');
+
+    try {
+      final response = await http.post(
+        Uri.parse('$baseUrl/api/payment/refund'),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: jsonEncode({
+          'paymentId': paymentId,
+          'amount': paymentAmount,
+        }),
+      );
+
+      _log('[Flutter] Response status: ${response.statusCode}');
+
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        _log('[Flutter] SUCCESS: Refund response received');
+        _log('[Flutter] Response data: $data');
+
+        final status = data['status'];
+        final resultStatus = data['resultStatus'];
+
+        if (status == 'SUCCESS' || resultStatus == 'S') {
+          _log('[Flutter] Refund processed successfully!');
+          _log('[Flutter] Refund ID: ${data['refundId']}');
+          _log('=================================================================\n');
+
+          if (mounted) {
+            _showDialog(
+              'Refund Successful',
+              'Your refund has been processed successfully.',
+            );
+          }
+        } else if (status == 'PENDING' || resultStatus == 'U') {
+          _log('[Flutter] Refund is pending/unknown');
+          _log('[Flutter] Backend will poll for status');
+          _log('=================================================================\n');
+
+          if (mounted) {
+            _showDialog(
+              'Refund Pending',
+              'Your refund is being processed. Please check back later.',
+            );
+          }
+        } else if (status == 'FAILED' || resultStatus == 'F') {
+          _log('[Flutter] Refund failed');
+          _log('[Flutter] Error: ${data['errorCode'] ?? data['resultMessage']}');
+          _log('=================================================================\n');
+
+          if (mounted) {
+            _showDialog(
+              'Refund Failed',
+              data['resultMessage'] ?? 'Refund request failed. Please try again.',
+            );
+          }
+        } else {
+          _log('[Flutter] Unknown refund status: $data');
+          _log('=================================================================\n');
+
+          if (mounted) {
+            _showDialog(
+              'Refund Status Unknown',
+              'Received unknown status from backend.',
+            );
+          }
+        }
+      } else {
+        final errorText = response.body;
+        _log('[Flutter] ERROR: Server returned status ${response.statusCode}');
+        _log('[Flutter] Response: $errorText');
+        _log('=================================================================\n');
+
+        if (mounted) {
+          _showDialog(
+            'Error',
+            'Failed to process refund request.\nStatus: ${response.statusCode}',
+          );
+        }
+      }
+    } catch (error) {
+      _log('[Flutter] ERROR: Failed to request refund');
+      _log('[Flutter] Error details: $error');
+      _log('=================================================================\n');
+
+      if (mounted) {
+        _showDialog(
+          'Error',
+          'Failed to process refund request. Please try again.',
+        );
+      }
+    }
+  }
+
   void _showDialog(String title, String content) {
     showDialog(
       context: context,
@@ -404,7 +517,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 const SizedBox(height: 12),
 
-                // Refund Button (Orange) - Disabled for now
+                // Refund Button (Orange)
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.orange[500],
@@ -415,8 +528,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       fontSize: 16,
                     ),
                   ),
-                  onPressed: null, // TODO: Implement refund
-                  child: const Text('Refund (Coming Soon)'),
+                  onPressed: _requestRefund,
+                  child: const Text('Refund'),
                 ),
               ],
             ),
