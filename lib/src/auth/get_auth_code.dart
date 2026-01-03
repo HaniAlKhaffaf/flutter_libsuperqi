@@ -48,7 +48,7 @@ external void _fetchAuthCodeFromBridge(_AuthCodeParameters parameters);
 /// Example:
 /// ```dart
 /// await getAuthCode(
-///   scopes: ['auth_user', 'auth_profile'],
+///   scopes: ['auth_base', 'USER_ID'],
 ///   success: (AuthCodeResult result) {
 ///     final code = result.authCode?.toDart;
 ///     print('Auth code: $code');
@@ -61,7 +61,7 @@ external void _fetchAuthCodeFromBridge(_AuthCodeParameters parameters);
 /// ```
 ///
 /// Parameters:
-/// - [scopes]: List of authorization scopes to request (e.g., 'auth_user', 'auth_profile').
+/// - [scopes]: List of authorization scopes to request (e.g., 'auth_base', 'USER_ID').
 /// - [success]: Called when authorization succeeds with the auth code.
 /// - [fail]: Called when authorization fails or is denied.
 /// - [complete]: Called when the authorization flow completes (success or fail).

@@ -68,7 +68,7 @@ class _DemoPageState extends State<DemoPage> {
     _setLoading(true);
     try {
       await getAuthCode(
-        scopes: ['auth_user', 'auth_profile'],
+        scopes: ['auth_base', 'USER_ID'],
         success: (AuthCodeResult result) {
           _setResult('Auth Success: Received auth code');
         },

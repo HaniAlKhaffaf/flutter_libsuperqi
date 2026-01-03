@@ -1,15 +1,6 @@
 # flutter_hylid_bridge
 
-A Flutter wrapper for the Hylid Bridge JavaScript SDK, providing seamless integration with Hylid's payment, authentication, and UI services on web platforms.
-
-## Features
-
-- **Payment Integration**: Process payments using Hylid's trade pay system
-- **Authentication**: Get auth codes with customizable scopes
-- **UI Components**: Display native-style alerts
-- **Automatic Script Loading**: Zero configuration - the Hylid Bridge script is automatically injected on web
-- **Cross-Platform**: Works on web with graceful no-op on mobile/desktop
-- **Type-Safe**: Full Dart type safety with proper result types
+A Flutter wrapper for the Hylid-Bridge JavaScript SDK.
 
 ## Installation
 
@@ -38,7 +29,7 @@ import 'package:flutter_hylid_bridge/hylid_bridge.dart';
 
 The Hylid Bridge JavaScript library will be automatically loaded when you use any API method on web platforms.
 
-### Payment
+### my.tradePay
 
 Process a payment using the `tradePay` function:
 
@@ -59,7 +50,7 @@ await tradePay(
 );
 ```
 
-### Authentication
+### my.getAuthCode
 
 Get an authorization code:
 
@@ -81,7 +72,7 @@ await getAuthCode(
 );
 ```
 
-### UI - Alert Dialog
+### my.alert
 
 Display a native-style alert:
 
@@ -130,23 +121,7 @@ The package is designed for web platforms where the Hylid Bridge JavaScript SDK 
 
 ### Automatic Script Injection
 
-When you use any API method on web:
-
-1. The package automatically checks if the Hylid Bridge script is loaded
-2. If not loaded, it injects the script tag into the DOM
-3. Waits for the script to load completely
-4. Executes your API call
-5. Subsequent calls use the already-loaded script (no re-loading)
-
-No manual script tags in `index.html` required!
-
-### Web vs Mobile
-
-The package uses conditional imports to provide:
-- **Web**: Full implementation with automatic script loading
-- **Mobile/Desktop**: Stub implementation (no-op)
-
-This ensures your app compiles and runs on all platforms without platform-specific code.
+When you use any API method on web, the package will automatically checks if the Hylid Bridge script is loaded. If not loaded, it injects the script tag into the DOM
 
 ## API Reference
 
@@ -232,10 +207,6 @@ See the [example](example) directory for a complete sample app demonstrating all
 
 MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Issues and Feedback
-
-Please file issues, bugs, or feature requests in our [issue tracker](https://github.com/hanialkhaffaf/hylid_flutter_sdk/issues).
-
 ## Contributing
 
-Contributions are welcome! Please read our contributing guidelines before submitting pull requests.
+Contributions are welcome through PRs!

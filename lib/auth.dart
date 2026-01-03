@@ -8,7 +8,7 @@
 /// import 'package:flutter_hylid_bridge/auth.dart';
 ///
 /// await getAuthCode(
-///   scopes: ['auth_user', 'auth_profile'],
+///   scopes: ['auth_base', 'USER_ID'],
 ///   success: (AuthCodeResult result) {
 ///     final code = result.authCode?.toDart;
 ///     print('Authorization code: $code');
