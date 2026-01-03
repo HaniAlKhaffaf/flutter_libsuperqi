@@ -21,6 +21,31 @@ extension type _AlertOptions._(JSObject o) implements JSObject {
 @JS('my.alert')
 external void _displayNativeAlert(_AlertOptions options);
 
+/// Displays a native-style alert dialog.
+///
+/// Shows an alert dialog with the specified title, content, and button text.
+/// The alert is displayed using the Hylid Bridge's native UI components,
+/// which match the platform's look and feel.
+///
+/// Example:
+/// ```dart
+/// await alert(
+///   title: 'Payment Complete',
+///   content: 'Your payment has been processed successfully.',
+///   buttonText: 'OK',
+///   success: () {
+///     print('User dismissed the alert');
+///   },
+/// );
+/// ```
+///
+/// Parameters:
+/// - [title]: The title of the alert dialog.
+/// - [content]: The main message to display in the alert.
+/// - [buttonText]: The text for the dismiss button (default: "OK").
+/// - [success]: Called when the user dismisses the alert.
+/// - [fail]: Called if the alert fails to display.
+/// - [complete]: Called when the alert flow completes.
 Future<void> alert({
   String? title,
   String? content,
