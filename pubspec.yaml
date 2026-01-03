@@ -1,7 +1,7 @@
 name: flutter_hylid_bridge
 description: "A Flutter wrapper plugin around Hylid bridge."
 version: 0.0.1
-homepage: https://github.com/hanialkhaffaf/flutter_hylid_bridge
+homepage: https://github.com/hanialkhaffaf/hylid_flutter_sdk
 
 environment:
    sdk: '>=3.0.0 <4.0.0'
