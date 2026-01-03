@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'hylid_bridge/hylid_bridge.dart' show getAuthCode, tradePay;
+import 'package:flutter_hylid_bridge/hylid_bridge.dart';
 import 'dart:js_interop';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
