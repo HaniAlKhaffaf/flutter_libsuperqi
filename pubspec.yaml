@@ -1,16 +1,15 @@
 name: flutter_hylid_bridge
-description: Flutter wrapper for Hylid Bridge SDK. Provides seamless integration with Hylid's payment, authentication, and UI services on web with automatic script injection.
+description: Flutter wrapper for Hylid-Bridge JavaScript SDK
 version: 0.0.1
-homepage: https://github.com/hanialkhaffaf/hylid_flutter_sdk
-repository: https://github.com/hanialkhaffaf/hylid_flutter_sdk
-issue_tracker: https://github.com/hanialkhaffaf/hylid_flutter_sdk/issues
-documentation: https://github.com/hanialkhaffaf/hylid_flutter_sdk#readme
+homepage: https://github.com/hanialkhaffaf/flutter_hylid_bridge
+repository: https://github.com/hanialkhaffaf/flutter_hylid_bridge
+issue_tracker: https://github.com/hanialkhaffaf/flutter_hylid_bridge/issues
+documentation: https://github.com/hanialkhaffaf/flutter_hylid_bridge#readme
 
 topics:
   - payment
-  - hylid
-  - bridge
   - authentication
+  - ui
   - web
 
 platforms:
