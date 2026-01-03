@@ -17,4 +17,5 @@
 /// ```
 library;
 
+export 'dart:js_interop';
 export './src/auth/get_auth_code.dart' show getAuthCode, AuthCodeResult;

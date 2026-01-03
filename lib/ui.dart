@@ -15,4 +15,5 @@
 /// ```
 library;
 
+export 'dart:js_interop';
 export './src/ui/alert.dart' show alert;
