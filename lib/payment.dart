@@ -5,7 +5,7 @@
 ///
 /// Example:
 /// ```dart
-/// import 'package:flutter_hylid_bridge/payment.dart';
+/// import 'package:flutter_libsuperqi/payment.dart';
 ///
 /// await tradePay(
 ///   paymentUrl: 'https://payment-gateway.com/pay?order=123',

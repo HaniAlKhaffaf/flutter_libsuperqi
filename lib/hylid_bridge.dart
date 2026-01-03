@@ -15,7 +15,7 @@
 /// ## Usage
 ///
 /// ```dart
-/// import 'package:flutter_hylid_bridge/hylid_bridge.dart';
+/// import 'package:flutter_libsuperqi/hylid_bridge.dart';
 ///
 /// // Process a payment
 /// await tradePay(
@@ -38,9 +38,9 @@
 ///
 /// You can also import specific categories:
 /// ```dart
-/// import 'package:flutter_hylid_bridge/payment.dart'; // Only payment APIs
-/// import 'package:flutter_hylid_bridge/auth.dart';    // Only auth APIs
-/// import 'package:flutter_hylid_bridge/ui.dart';      // Only UI APIs
+/// import 'package:flutter_libsuperqi/payment.dart'; // Only payment APIs
+/// import 'package:flutter_libsuperqi/auth.dart';    // Only auth APIs
+/// import 'package:flutter_libsuperqi/ui.dart';      // Only UI APIs
 /// ```
 library;
 

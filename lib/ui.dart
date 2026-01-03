@@ -5,7 +5,7 @@
 ///
 /// Example:
 /// ```dart
-/// import 'package:flutter_hylid_bridge/ui.dart';
+/// import 'package:flutter_libsuperqi/ui.dart';
 ///
 /// await alert(
 ///   title: 'Success',

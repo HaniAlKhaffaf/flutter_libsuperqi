@@ -1,6 +1,6 @@
-# flutter_hylid_bridge_example
+# flutter_libsuperqi_example
 
-Demonstrates how to use the flutter_hylid_bridge plugin.
+Demonstrates how to use the flutter_libsuperqi plugin.
 
 ## Getting Started
 

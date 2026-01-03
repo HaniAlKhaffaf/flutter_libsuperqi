@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hylid_bridge/hylid_bridge.dart';
+import 'package:flutter_libsuperqi/hylid_bridge.dart';
 
 void main() {
   runApp(const MyApp());

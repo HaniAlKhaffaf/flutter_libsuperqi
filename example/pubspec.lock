@@ -75,7 +75,7 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_hylid_bridge:
+  flutter_libsuperqi:
     dependency: "direct main"
     description:
       path: ".."

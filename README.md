@@ -1,4 +1,4 @@
-# flutter_hylid_bridge
+# flutter_libsuperqi
 
 A Flutter wrapper for the Hylid-Bridge JavaScript SDK.
 
@@ -8,7 +8,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  flutter_hylid_bridge: ^0.0.1
+  flutter_libsuperqi: ^0.0.1
 ```
 
 Then run:
@@ -24,7 +24,7 @@ flutter pub get
 No setup required! Just import and use:
 
 ```dart
-import 'package:flutter_hylid_bridge/hylid_bridge.dart';
+import 'package:flutter_libsuperqi/hylid_bridge.dart';
 ```
 
 The Hylid Bridge JavaScript library will be automatically loaded when you use any API method on web platforms.
@@ -34,7 +34,7 @@ The Hylid Bridge JavaScript library will be automatically loaded when you use an
 Process a payment using the `tradePay` function:
 
 ```dart
-import 'package:flutter_hylid_bridge/hylid_bridge.dart';
+import 'package:flutter_libsuperqi/hylid_bridge.dart';
 
 await tradePay(
   paymentUrl: 'https://your-payment-url.com/pay?params=...',
@@ -55,7 +55,7 @@ await tradePay(
 Get an authorization code:
 
 ```dart
-import 'package:flutter_hylid_bridge/hylid_bridge.dart';
+import 'package:flutter_libsuperqi/hylid_bridge.dart';
 
 await getAuthCode(
   scopes: ['auth_user', 'auth_profile'],
@@ -77,7 +77,7 @@ await getAuthCode(
 Display a native-style alert:
 
 ```dart
-import 'package:flutter_hylid_bridge/hylid_bridge.dart';
+import 'package:flutter_libsuperqi/hylid_bridge.dart';
 
 await alert(
   title: 'Success',
@@ -95,13 +95,13 @@ You can import specific categories instead of everything:
 
 ```dart
 // Import only payment APIs
-import 'package:flutter_hylid_bridge/payment.dart';
+import 'package:flutter_libsuperqi/payment.dart';
 
 // Import only authentication APIs
-import 'package:flutter_hylid_bridge/auth.dart';
+import 'package:flutter_libsuperqi/auth.dart';
 
 // Import only UI APIs
-import 'package:flutter_hylid_bridge/ui.dart';
+import 'package:flutter_libsuperqi/ui.dart';
 ```
 
 ## Platform Support

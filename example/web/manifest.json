@@ -1,11 +1,11 @@
 {
-    "name": "flutter_hylid_bridge_example",
-    "short_name": "flutter_hylid_bridge_example",
+    "name": "flutter_libsuperqi_example",
+    "short_name": "flutter_libsuperqi_example",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Demonstrates how to use the flutter_hylid_bridge plugin.",
+    "description": "Demonstrates how to use the flutter_libsuperqi plugin.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

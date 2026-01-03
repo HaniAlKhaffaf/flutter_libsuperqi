@@ -1,13 +1,13 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
-import 'flutter_hylid_bridge_platform_interface.dart';
+import 'flutter_libsuperqi_platform_interface.dart';
 
-/// An implementation of [FlutterHylidBridgePlatform] that uses method channels.
-class MethodChannelFlutterHylidBridge extends FlutterHylidBridgePlatform {
+/// An implementation of [FlutterLibsuperqiPlatform] that uses method channels.
+class MethodChannelFlutterLibsuperqi extends FlutterLibsuperqiPlatform {
   /// The method channel used to interact with the native platform.
   @visibleForTesting
-  final methodChannel = const MethodChannel('flutter_hylid_bridge');
+  final methodChannel = const MethodChannel('flutter_libsuperqi');
 
   @override
   Future<String?> getPlatformVersion() async {

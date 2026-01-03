@@ -6,15 +6,15 @@
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:web/web.dart' as web;
 
-import 'flutter_hylid_bridge_platform_interface.dart';
+import 'flutter_libsuperqi_platform_interface.dart';
 
-/// A web implementation of the FlutterHylidBridgePlatform of the FlutterHylidBridge plugin.
-class FlutterHylidBridgeWeb extends FlutterHylidBridgePlatform {
-  /// Constructs a FlutterHylidBridgeWeb
-  FlutterHylidBridgeWeb();
+/// A web implementation of the FlutterLibsuperqiPlatform of the FlutterLibsuperqi plugin.
+class FlutterLibsuperqiWeb extends FlutterLibsuperqiPlatform {
+  /// Constructs a FlutterLibsuperqiWeb
+  FlutterLibsuperqiWeb();
 
   static void registerWith(Registrar registrar) {
-    FlutterHylidBridgePlatform.instance = FlutterHylidBridgeWeb();
+    FlutterLibsuperqiPlatform.instance = FlutterLibsuperqiWeb();
   }
 
   /// Returns a [String] containing the version of the platform.

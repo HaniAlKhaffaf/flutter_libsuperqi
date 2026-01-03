@@ -5,7 +5,7 @@
 ///
 /// Example:
 /// ```dart
-/// import 'package:flutter_hylid_bridge/auth.dart';
+/// import 'package:flutter_libsuperqi/auth.dart';
 ///
 /// await getAuthCode(
 ///   scopes: ['auth_base', 'USER_ID'],

@@ -1,12 +1,12 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_hylid_bridge/flutter_hylid_bridge_method_channel.dart';
+import 'package:flutter_libsuperqi/flutter_libsuperqi_method_channel.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  MethodChannelFlutterHylidBridge platform = MethodChannelFlutterHylidBridge();
-  const MethodChannel channel = MethodChannel('flutter_hylid_bridge');
+  MethodChannelFlutterLibsuperqi platform = MethodChannelFlutterLibsuperqi();
+  const MethodChannel channel = MethodChannel('flutter_libsuperqi');
 
   setUp(() {
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(
