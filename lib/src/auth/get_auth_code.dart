@@ -1,4 +1,5 @@
 import 'dart:js_interop';
+import '../script_loader.dart';
 
 extension type _AuthCodeParameters._(JSObject o) implements JSObject {
   external _AuthCodeParameters({
@@ -27,12 +28,15 @@ extension type AuthCodeResult._(JSObject o) implements JSObject {
 @JS('my.getAuthCode')
 external void _fetchAuthCodeFromBridge(_AuthCodeParameters parameters);
 
-void getAuthCode({
+Future<void> getAuthCode({
   required List<String> scopes,
   void Function(AuthCodeResult result)? success,
   void Function()? fail,
   void Function()? complete,
-}) {
+}) async {
+  // Ensure the Hylid Bridge script is loaded before calling
+  await scriptLoader.ensureInitialized();
+
   final authParameters = _AuthCodeParameters(
     scopes: scopes.map((s) => s.toJS).toList().toJS,
     success: success?.toJS,

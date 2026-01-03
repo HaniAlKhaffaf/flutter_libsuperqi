@@ -1,4 +1,5 @@
 import 'dart:js_interop';
+import '../script_loader.dart';
 
 extension type _TradePayParameters._(JSObject o) implements JSObject {
   external _TradePayParameters({
@@ -23,12 +24,15 @@ extension type TradePayResult._(JSObject o) implements JSObject {
 @JS('my.tradePay')
 external void _executeTradePayment(_TradePayParameters parameters);
 
-void tradePay({
+Future<void> tradePay({
   String? paymentUrl,
   void Function(TradePayResult result)? success,
   void Function(TradePayResult result)? fail,
   void Function(TradePayResult result)? complete,
-}) {
+}) async {
+  // Ensure the Hylid Bridge script is loaded before calling
+  await scriptLoader.ensureInitialized();
+
   final tradePayParameters = _TradePayParameters(
     paymentUrl: paymentUrl?.toJS,
     success: success?.toJS,

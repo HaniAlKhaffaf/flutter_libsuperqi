@@ -1,4 +1,5 @@
 import 'dart:js_interop';
+import '../script_loader.dart';
 
 extension type _AlertOptions._(JSObject o) implements JSObject {
   external _AlertOptions({
@@ -20,14 +21,17 @@ extension type _AlertOptions._(JSObject o) implements JSObject {
 @JS('my.alert')
 external void _displayNativeAlert(_AlertOptions options);
 
-void alert({
+Future<void> alert({
   String? title,
   String? content,
   String? buttonText,
   void Function()? success,
   void Function()? fail,
   void Function()? complete,
-}) {
+}) async {
+  // Ensure the Hylid Bridge script is loaded before calling
+  await scriptLoader.ensureInitialized();
+
   final alertOptions = _AlertOptions(
     title: title?.toJS,
     content: content?.toJS,
